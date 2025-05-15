@@ -51,11 +51,11 @@ class User extends Authenticatable
         ];
     }
 
-    public function blog(){
+    public function blogs(){
         return $this->hasMany(Blog::class);
     }
 
-    public function testimonial(){
+    public function testimonials(){
         return $this->hasMany(Testimonial::class);
     }
 

@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     //
-    public function photo(){
+    public function photos(){
         return $this->hasMany(Photo::class);
     }
 
-    public function blog(){
+    public function blogs(){
         return $this->hasMany(Blog::class);
     }
 }
