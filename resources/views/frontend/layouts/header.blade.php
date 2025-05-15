@@ -15,12 +15,16 @@
           <li><a href="#photo">Photo</a></li>
           <li><a href="#team">Team</a></li>
           <li><a href="{{ route('blog') }}" class="active">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>Authentication</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="{{ route('login') }}">Login</a></li>
-              <li><a href="{{ route('register') }}">Registration</a></li>
-            </ul>
-          </li>
+          @guest
+            <li class="dropdown"><a href="#"><span>Authentication</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="{{ route('login') }}">Login</a></li>
+                <li><a href="{{ route('register') }}">Registration</a></li>
+              </ul>
+            </li>
+          @else
+            <li><a href="{{ route ('dashboard') }}">Dashboard</a></li>
+          @endguest
           <li><a href="#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

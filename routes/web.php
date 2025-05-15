@@ -15,4 +15,4 @@ Route::get('/photo/details/{photo}', [SiteController::class, 'photoDetails'])->n
 Route::post('/contact', [EmailController::class, 'contact'])->name('contact');
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
