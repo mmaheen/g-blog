@@ -1,5 +1,9 @@
 @extends('frontend.layouts.layout')
 
+@section('title')
+    Register
+@endsection
+
 @section('content')
 <div class="container mb-5 pt-5">
     <div class="row justify-content-center">
@@ -8,7 +12,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype = "multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">

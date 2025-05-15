@@ -64,10 +64,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if(isset($data['image'])){
+            $image_name = 'ProfilePicture-'.time().$data['image']->extension();
+            $data['image']->move(public_path('uploads/users'),$image_name);
+        }
+        else{
+            $image_name = null;
+        }
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'image' => $image_name
         ]);
     }
 }
