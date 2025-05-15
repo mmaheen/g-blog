@@ -235,34 +235,36 @@
                         </div>
 
                 <!-- Replies Container -->
+                 @if($comment->replies->count())
+                 @foreach($comment->replies as $reply)
                 <div class="replies-container">
                     <!-- Reply #1 -->
                     <div class="comment-box reply">
                         <div class="comment-wrapper">
                             <div class="avatar-wrapper">
-                                <img src="{{ asset('assets/frontend') }}/assets/img/person/person-m-9.webp" alt="Avatar" loading="lazy">
+                                <img src="{{ asset('uploads/users') }}/{{ $reply->user->image }}" alt="Avatar" loading="lazy">
                                 <span class="status-indicator"></span>
                             </div>
 
                             <div class="comment-content">
                                 <div class="comment-header">
                                     <div class="user-info">
-                                        <h4>Maria Rodriguez</h4>
+                                        <h4>{{ $reply->user->name }}</h4>
                                         <span class="time-badge">
                                             <i class="bi bi-clock"></i>
-                                            1 hour ago
+                                            {{ $reply->created_at->diffForHumans()}}
                                         </span>
                                     </div>
                                     <div class="engagement">
                                         <span class="likes">
                                             <i class="bi bi-heart"></i>
-                                            8
+                                            {{ $reply->likes }}
                                         </span>
                                     </div>
                                 </div>
 
                                 <div class="comment-body">
-                                    <p>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae.</p>
+                                    <p>{{$reply->comment}}</p>
                                 </div>
 
                                 <div class="comment-actions">
@@ -282,54 +284,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Reply #2 -->
-                    <div class="comment-box reply">
-                    <div class="comment-wrapper">
-                        <div class="avatar-wrapper">
-                        <img src="{{ asset('assets/frontend') }}/assets/img/person/person-f-9.webp" alt="Avatar" loading="lazy">
-                        <span class="status-indicator"></span>
-                        </div>
-
-                        <div class="comment-content">
-                        <div class="comment-header">
-                            <div class="user-info">
-                            <h4>Alex Chen</h4>
-                            <span class="time-badge">
-                                <i class="bi bi-clock"></i>
-                                30 minutes ago
-                            </span>
-                            </div>
-                            <div class="engagement">
-                            <span class="likes">
-                                <i class="bi bi-heart"></i>
-                                5
-                            </span>
-                            </div>
-                        </div>
-
-                        <div class="comment-body">
-                            <p>Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
-                        </div>
-
-                        <div class="comment-actions">
-                            <button class="action-btn like-btn" aria-label="Like comment">
-                            <i class="bi bi-heart"></i>
-                            <span>Like</span>
-                            </button>
-                            <button class="action-btn reply-btn" aria-label="Reply to comment">
-                            <i class="bi bi-chat"></i>
-                            <span>Reply</span>
-                            </button>
-                            <button class="action-btn share-btn" aria-label="Share comment">
-                            <i class="bi bi-share"></i>
-                            <span>Share</span>
-                            </button>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
                 </div>
+                @endforeach
+                @endif
                 </div>
                 @endforeach
                 {{--For--}}
