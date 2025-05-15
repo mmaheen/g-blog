@@ -178,107 +178,109 @@
             <div class="comments-header">
                 <h3 class="title">Community Feedback</h3>
                 <div class="comments-stats">
-                <span class="count">12</span>
+                <span class="count">{{count($comments)}}</span>
                 <span class="label">Comments</span>
                 </div>
             </div>
 
             <div class="comments-container">
                 <!-- Comment #1 -->
+                 {{--For--}}
+                 @foreach($comments as $comment)
                 <div class="comment-thread">
-                <div class="comment-box">
-                    <div class="comment-wrapper">
-                    <div class="avatar-wrapper">
-                        <img src="{{ asset('assets/frontend') }}/assets/img/person/person-f-9.webp" alt="Avatar" loading="lazy">
-                        <span class="status-indicator"></span>
-                    </div>
+                        <div class="comment-box">
+                            <div class="comment-wrapper">
+                                <div class="avatar-wrapper">
+                                    <img src="{{ asset('uploads/users') }}/{{ $comment->user->image }}" alt="Avatar" loading="lazy">
+                                    <span class="status-indicator"></span>
+                                </div>
 
-                    <div class="comment-content">
-                        <div class="comment-header">
-                        <div class="user-info">
-                            <h4>Thomas Anderson</h4>
-                            <span class="time-badge">
-                            <i class="bi bi-clock"></i>
-                            2 hours ago
-                            </span>
-                        </div>
-                        <div class="engagement">
-                            <span class="likes">
-                            <i class="bi bi-heart"></i>
-                            24
-                            </span>
-                        </div>
-                        </div>
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <div class="user-info">
+                                            <h4>{{ $comment->user->name }}</h4>
+                                            <span class="time-badge">
+                                            <i class="bi bi-clock"></i>
+                                            {{ $comment->created_at->diffForHumans()}}
+                                            </span>
+                                        </div>
+                                        <div class="engagement">
+                                            <span class="likes">
+                                            <i class="bi bi-heart"></i>
+                                            {{ $comment->likes }}
+                                            </span>
+                                        </div>
+                                    </div>
 
-                        <div class="comment-body">
-                        <p>Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc.</p>
-                        </div>
+                                    <div class="comment-body">
+                                        <p>{{ $comment->comment }}</p>
+                                    </div>
 
-                        <div class="comment-actions">
-                        <button class="action-btn like-btn" aria-label="Like comment">
-                            <i class="bi bi-heart"></i>
-                            <span>Like</span>
-                        </button>
-                        <button class="action-btn reply-btn" aria-label="Reply to comment">
-                            <i class="bi bi-chat"></i>
-                            <span>Reply</span>
-                        </button>
-                        <button class="action-btn share-btn" aria-label="Share comment">
-                            <i class="bi bi-share"></i>
-                            <span>Share</span>
-                        </button>
+                                    <div class="comment-actions">
+                                    <button class="action-btn like-btn" aria-label="Like comment">
+                                        <i class="bi bi-heart"></i>
+                                        <span>Like</span>
+                                    </button>
+                                    <button class="action-btn reply-btn" aria-label="Reply to comment">
+                                        <i class="bi bi-chat"></i>
+                                        <span>Reply</span>
+                                    </button>
+                                    <button class="action-btn share-btn" aria-label="Share comment">
+                                        <i class="bi bi-share"></i>
+                                        <span>Share</span>
+                                    </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    </div>
-                </div>
 
                 <!-- Replies Container -->
                 <div class="replies-container">
                     <!-- Reply #1 -->
                     <div class="comment-box reply">
-                    <div class="comment-wrapper">
-                        <div class="avatar-wrapper">
-                        <img src="{{ asset('assets/frontend') }}/assets/img/person/person-m-9.webp" alt="Avatar" loading="lazy">
-                        <span class="status-indicator"></span>
-                        </div>
-
-                        <div class="comment-content">
-                        <div class="comment-header">
-                            <div class="user-info">
-                            <h4>Maria Rodriguez</h4>
-                            <span class="time-badge">
-                                <i class="bi bi-clock"></i>
-                                1 hour ago
-                            </span>
+                        <div class="comment-wrapper">
+                            <div class="avatar-wrapper">
+                                <img src="{{ asset('assets/frontend') }}/assets/img/person/person-m-9.webp" alt="Avatar" loading="lazy">
+                                <span class="status-indicator"></span>
                             </div>
-                            <div class="engagement">
-                            <span class="likes">
-                                <i class="bi bi-heart"></i>
-                                8
-                            </span>
+
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <div class="user-info">
+                                        <h4>Maria Rodriguez</h4>
+                                        <span class="time-badge">
+                                            <i class="bi bi-clock"></i>
+                                            1 hour ago
+                                        </span>
+                                    </div>
+                                    <div class="engagement">
+                                        <span class="likes">
+                                            <i class="bi bi-heart"></i>
+                                            8
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="comment-body">
+                                    <p>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae.</p>
+                                </div>
+
+                                <div class="comment-actions">
+                                    <button class="action-btn like-btn" aria-label="Like comment">
+                                    <i class="bi bi-heart"></i>
+                                    <span>Like</span>
+                                    </button>
+                                    <button class="action-btn reply-btn" aria-label="Reply to comment">
+                                    <i class="bi bi-chat"></i>
+                                    <span>Reply</span>
+                                    </button>
+                                    <button class="action-btn share-btn" aria-label="Share comment">
+                                    <i class="bi bi-share"></i>
+                                    <span>Share</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="comment-body">
-                            <p>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae.</p>
-                        </div>
-
-                        <div class="comment-actions">
-                            <button class="action-btn like-btn" aria-label="Like comment">
-                            <i class="bi bi-heart"></i>
-                            <span>Like</span>
-                            </button>
-                            <button class="action-btn reply-btn" aria-label="Reply to comment">
-                            <i class="bi bi-chat"></i>
-                            <span>Reply</span>
-                            </button>
-                            <button class="action-btn share-btn" aria-label="Share comment">
-                            <i class="bi bi-share"></i>
-                            <span>Share</span>
-                            </button>
-                        </div>
-                        </div>
-                    </div>
                     </div>
 
                     <!-- Reply #2 -->
@@ -329,55 +331,8 @@
                     </div>
                 </div>
                 </div>
-
-                <!-- Comment #2 -->
-                <div class="comment-thread">
-                <div class="comment-box">
-                    <div class="comment-wrapper">
-                    <div class="avatar-wrapper">
-                        <img src="{{ asset('assets/frontend') }}/assets/img/person/person-f-7.webp" alt="Avatar" loading="lazy">
-                        <span class="status-indicator"></span>
-                    </div>
-
-                    <div class="comment-content">
-                        <div class="comment-header">
-                        <div class="user-info">
-                            <h4>Emily Watson</h4>
-                            <span class="time-badge">
-                            <i class="bi bi-clock"></i>
-                            3 hours ago
-                            </span>
-                        </div>
-                        <div class="engagement">
-                            <span class="likes">
-                            <i class="bi bi-heart"></i>
-                            15
-                            </span>
-                        </div>
-                        </div>
-
-                        <div class="comment-body">
-                        <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
-                        </div>
-
-                        <div class="comment-actions">
-                        <button class="action-btn like-btn" aria-label="Like comment">
-                            <i class="bi bi-heart"></i>
-                            <span>Like</span>
-                        </button>
-                        <button class="action-btn reply-btn" aria-label="Reply to comment">
-                            <i class="bi bi-chat"></i>
-                            <span>Reply</span>
-                        </button>
-                        <button class="action-btn share-btn" aria-label="Share comment">
-                            <i class="bi bi-share"></i>
-                            <span>Share</span>
-                        </button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                </div>
+                @endforeach
+                {{--For--}}
             </div>
             </div>
 

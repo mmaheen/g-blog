@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             PhotoSeeder::class,
             BlogSeeder::class,
             TestimonialSeeder::class,
-            SkillSeeder::class
+            SkillSeeder::class,
+            CommentSeeder::class
         ]);
     }
 }

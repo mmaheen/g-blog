@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\User;
 use App\Models\Photo;
 use App\Models\Skill;
+use App\Models\Comment;
 use App\Models\Category;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
@@ -36,7 +37,9 @@ class SiteController extends Controller
 
     public function blogDetails(string $id){
         $blog = Blog::find($id);
-        return view ('frontend.blog.details',compact('blog'));
+        $comments = Comment::where('blog_id',$id)->get();
+        // return $comments;
+        return view ('frontend.blog.details',compact('blog','comments'));
     }
 
     public function photoDetails($id){
