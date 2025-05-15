@@ -43,11 +43,13 @@
                     </h2>
 
                     <div class="meta-top">
-                      <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">{{$blog->user->name}}</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">{{date ('M j, Y', strtotime( $blog->created_at )) }}</time></a></li>
-                        {{--<li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>--}}
-                      </ul>
+                      <div class= "row">
+                        <div class="col-12 d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">{{$blog->user->name}}</a></div> 
+                      </div>
+                      <div class="row mt-2">
+                        <div class="col-6 d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">{{date ('M j, Y', strtotime( $blog->created_at )) }}</time></a></div>
+                        <div class="col-6 d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">{{$blog->comments->count()}} Comments</a></div>
+                      </div>
                     </div>
 
                     <div class="content">
@@ -67,71 +69,6 @@
                 </div><!-- End post list item -->
                 @endforeach
 
-                <div class="col-lg-6">
-
-                  <article>
-
-                    <div class="post-img">
-                      <img src="{{ asset('assets/frontend') }}/assets/img/blog/blog-post-2.webp" alt="" class="img-fluid">
-                    </div>
-
-                    <h2 class="title">
-                      <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>
-                    </h2>
-
-                    <div class="meta-top">
-                      <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
-                      </ul>
-                    </div>
-
-                    <div class="content">
-                      <p>
-                        Incidunt voluptate sit temporibus aperiam. Quia vitae aut sint ullam quis illum voluptatum et. Quo libero rerum voluptatem pariatur nam.
-                        Ad impedit qui officiis est</p>
-                      <div class="read-more">
-                        <a href="blog-details.html">Read More</a>
-                      </div>
-                    </div>
-
-                  </article>
-
-                </div><!-- End post list item -->
-
-                <div class="col-lg-6">
-
-                  <article>
-
-                    <div class="post-img">
-                      <img src="{{ asset('assets/frontend') }}/assets/img/blog/blog-post-3.webp" alt="" class="img-fluid">
-                    </div>
-
-                    <h2 class="title">
-                      <a href="blog-details.html">Possimus soluta ut id suscipit ea ut. In quo quia et soluta libero sit sint.</a>
-                    </h2>
-
-                    <div class="meta-top">
-                      <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
-                      </ul>
-                    </div>
-
-                    <div class="content">
-                      <p>
-                        Aut iste neque ut illum qui perspiciatis similique recusandae non. Fugit autem dolorem labore omnis et. Eum temporibus fugiat voluptate enim tenetur sun</p>
-                      <div class="read-more">
-                        <a href="blog-details.html">Read More</a>
-                      </div>
-                    </div>
-
-                  </article>
-
-                </div><!-- End post list item -->
-
               </div><!-- End blog posts list -->
 
             </div>
@@ -140,10 +77,10 @@
 
           <!-- Pagination 2 Section -->
           <section id="pagination-2" class="pagination-2 section">
-            <div>
+            <div class = "d-flex justify-content-center">
               {{$blogs->links('pagination::bootstrap-4')}}
             </div>
-            <div class="container">
+            {{--<div class="container">
               <div class="d-flex justify-content-center">
                 <ul>
                   <li><a href="#"><i class="bi bi-chevron-left"></i></a></li>
@@ -156,7 +93,7 @@
                   <li><a href="#"><i class="bi bi-chevron-right"></i></a></li>
                 </ul>
               </div>
-            </div>
+            </div>--}}
 
           </section><!-- /Pagination 2 Section -->
 

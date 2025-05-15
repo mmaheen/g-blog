@@ -36,7 +36,7 @@ class BlogSeeder extends Seeder
 
             Blog::create([
                 'title' => $faker->realText($maxNbChars = 100, $indexSize = 2),
-                'description'=>$faker->realText($maxNbChars = 10000, $indexSize = 2),
+                'description'=>$faker->realText($maxNbChars = 2000, $indexSize = 2),
                 'image' => $photo_name,
                 'user_id' => $random_user_id,
                 'category_id' => $random_category,

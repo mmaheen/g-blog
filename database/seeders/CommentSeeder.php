@@ -16,7 +16,6 @@ class CommentSeeder extends Seeder
      */
     public function run(): void
     {
-        //
         $faker = Factory::create();
 
         // Create 100 parent comments
@@ -39,24 +38,5 @@ class CommentSeeder extends Seeder
                 ]);
             }
         }
-
-
-        // $faker = Factory::create();
-
-        // $parrent_comment = 
-
-        // foreach(range(1,200) as $index){
-        //     $random_user = User::inRandomOrder()->first()->id;
-        //     $random_blog = Blog::inRandomOrder()->first()->id;
-
-        //     Comment::create([
-        //         'user_id' => $random_user,
-        //         'blog_id' => $random_blog,
-        //         'comment' => $faker->realText($maxNbChars = 200, $indexSize = 2),
-        //         'likes' => rand(1,999),
-        //         'created_at' => $faker->time(),
-        //         'parrent_id' => rand(1,100)
-        //     ]);
-        // }
     }
 }
