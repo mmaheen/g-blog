@@ -142,7 +142,7 @@
               <h3 class="widget-title">Categories</h3>
               <ul class="mt-3">
                 @foreach($categories as $category)
-                  <li><a href="#">{{$category->title}} <span>({{$category->blog()->count()}})</span></a></li>
+                  <li><a href="#">{{$category->title}} <span>({{$category->blogs()->count()}})</span></a></li>
                 @endforeach
               </ul>
 

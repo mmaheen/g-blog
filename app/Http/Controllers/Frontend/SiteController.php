@@ -17,15 +17,15 @@ class SiteController extends Controller
 {
     //
     public function index(){
-        $categories = Category::select('id','image')->get();
-        $random_categories = Category::inRandomOrder()->select('id','title')->take(10)->get();
-        $users = User::select('name','id','image','role')->inRandomOrder()->take(4)->get();
-        $photos = Photo::latest()->paginate(15);
-        $testimonials = Testimonial::inRandomOrder()->take(5)->get();
-        $blogs = Blog::latest()->take(6)->get();
-        $skills = Skill::all();
+        $categories = Category::select('id','image')->get(); //Category image 
+        $skills = Skill::select('title','percentage')->get();
+        $photo_categories = Category::inRandomOrder()->select('id','title')->take(10)->get(); //Photo category
+        $photos = Photo::latest()->select('title','id','image','category_id')->with('category')->paginate(15);
+        $blogs = Blog::latest()->select('title','created_at','category_id','user_id','id','image')->with('category','user')->take(6)->get();
+        $users = User::select('name','id','image','role')->inRandomOrder()->take(4)->get(); //Team
+        $testimonials = Testimonial::inRandomOrder()->select('user_id','rating','review')->with('user')->take(5)->get();
         $faker = Factory::create();
-        return view ('frontend.index',compact('categories','photos','random_categories','users','testimonials','blogs','skills','faker'));
+        return view ('frontend.index',compact('categories','photos','photo_categories','users','testimonials','blogs','skills','faker'));
     }
 
     public function blog(){

@@ -154,7 +154,7 @@
 
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
             <li data-filter="*" class="filter-active">All</li>
-            @foreach($random_categories as $category)
+            @foreach($photo_categories as $category)
               <li data-filter=".filter-{{$category->id}}">{{$category->title}}</li>
             @endforeach
           </ul><!-- End Portfolio Filters -->
