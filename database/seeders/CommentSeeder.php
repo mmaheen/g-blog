@@ -19,7 +19,7 @@ class CommentSeeder extends Seeder
         $faker = Factory::create();
 
         // Create 100 parent comments
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 50; $i++) {
             $parentComment = Comment::create([
                 'user_id' => User::inRandomOrder()->first()->id,
                 'blog_id' => Blog::inRandomOrder()->first()->id,
@@ -37,6 +37,15 @@ class CommentSeeder extends Seeder
                     'likes' => rand(0,999)
                 ]);
             }
+        }
+
+        foreach(range(1,100) as $index){
+            Comment::create([
+                'user_id' => User::inRandomOrder()->first()->id,
+                'blog_id' => Blog::inRandomOrder()->first()->id,
+                'comment' => $faker->sentence(),
+                'likes' => rand(0,999)
+            ]);
         }
     }
 }

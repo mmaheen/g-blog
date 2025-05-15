@@ -31,15 +31,12 @@ class BlogSeeder extends Seeder
             $random_photo = $photos[array_rand($photos)];
             $photo_name = $random_photo->getFileName();
 
-            $random_category = Category::inRandomOrder()->first()->id;
-            $random_user_id = User::inRandomOrder()->first()->id;
-
             Blog::create([
                 'title' => $faker->realText($maxNbChars = 100, $indexSize = 2),
                 'description'=>$faker->realText($maxNbChars = 2000, $indexSize = 2),
                 'image' => $photo_name,
-                'user_id' => $random_user_id,
-                'category_id' => $random_category,
+                'user_id' =>  User::inRandomOrder()->first()->id,
+                'category_id' => Category::inRandomOrder()->first()->id,
                 'created_at' => $faker->dateTime()
             ]);
         }

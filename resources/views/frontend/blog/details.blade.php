@@ -46,16 +46,16 @@
 
                 <div class="author-info">
                     <div class="author-details">
-                    <img src="{{ asset('assets/frontend') }}/assets/img/person/person-f-8.webp" alt="Author" class="author-img">
+                    <img src="{{ asset('uploads/users' ) }}/{{ $blog->user->image }}" alt="Author" class="author-img">
                     <div class="info">
                         <h4>{{$blog->user->name}}</h4>
-                        <span class="role">Senior Web Developer</span>
+                        <span class="role">{{ucfirst($blog->user->role)}}</span>
                     </div>
                     </div>
                     <div class="post-meta">
                     <span class="date"><i class="bi bi-calendar3"></i> {{date('F j, Y',strtotime($blog->created_at))}}</span>
                     <span class="divider">•</span>
-                    <span class="comments"><i class="bi bi-chat-text"></i> 18 Comments</span>
+                    <span class="comments"><i class="bi bi-chat-text"></i> {{$blog->comments->count()}} Comments</span>
                     </div>
                 </div>
                 </div>
@@ -185,9 +185,9 @@
 
             <div class="comments-container">
                 <!-- Comment #1 -->
-                 {{--For--}}
-                 @foreach($comments as $comment)
-                <div class="comment-thread">
+                @foreach($comments as $comment)
+                    <div class="comment-thread">
+                        @if(!isset($comment->parent_id))
                         <div class="comment-box">
                             <div class="comment-wrapper">
                                 <div class="avatar-wrapper">
@@ -233,63 +233,63 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
 
-                <!-- Replies Container -->
-                 @if($comment->replies->count())
-                 @foreach($comment->replies as $reply)
-                <div class="replies-container">
-                    <!-- Reply #1 -->
-                    <div class="comment-box reply">
-                        <div class="comment-wrapper">
-                            <div class="avatar-wrapper">
-                                <img src="{{ asset('uploads/users') }}/{{ $reply->user->image }}" alt="Avatar" loading="lazy">
-                                <span class="status-indicator"></span>
-                            </div>
+                        <!-- Replies Container -->
+                        @if($comment->replies->count())
+                            @foreach($comment->replies as $reply)
+                                <div class="replies-container">
+                                    <!-- Reply #1 -->
+                                    <div class="comment-box reply">
+                                        <div class="comment-wrapper">
+                                            <div class="avatar-wrapper">
+                                                <img src="{{ asset('uploads/users') }}/{{ $reply->user->image }}" alt="Avatar" loading="lazy">
+                                                <span class="status-indicator"></span>
+                                            </div>
 
-                            <div class="comment-content">
-                                <div class="comment-header">
-                                    <div class="user-info">
-                                        <h4>{{ $reply->user->name }}</h4>
-                                        <span class="time-badge">
-                                            <i class="bi bi-clock"></i>
-                                            {{ $reply->created_at->diffForHumans()}}
-                                        </span>
+                                            <div class="comment-content">
+                                                <div class="comment-header">
+                                                    <div class="user-info">
+                                                        <h4>{{ $reply->user->name }}</h4>
+                                                        <span class="time-badge">
+                                                            <i class="bi bi-clock"></i>
+                                                            {{ $reply->created_at->diffForHumans()}}
+                                                        </span>
+                                                    </div>
+                                                    <div class="engagement">
+                                                        <span class="likes">
+                                                            <i class="bi bi-heart"></i>
+                                                            {{ $reply->likes }}
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="comment-body">
+                                                    <p>{{$reply->comment}}</p>
+                                                </div>
+
+                                                <div class="comment-actions">
+                                                    <button class="action-btn like-btn" aria-label="Like comment">
+                                                    <i class="bi bi-heart"></i>
+                                                    <span>Like</span>
+                                                    </button>
+                                                    <button class="action-btn reply-btn" aria-label="Reply to comment">
+                                                    <i class="bi bi-chat"></i>
+                                                    <span>Reply</span>
+                                                    </button>
+                                                    <button class="action-btn share-btn" aria-label="Share comment">
+                                                    <i class="bi bi-share"></i>
+                                                    <span>Share</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="engagement">
-                                        <span class="likes">
-                                            <i class="bi bi-heart"></i>
-                                            {{ $reply->likes }}
-                                        </span>
-                                    </div>
                                 </div>
-
-                                <div class="comment-body">
-                                    <p>{{$reply->comment}}</p>
-                                </div>
-
-                                <div class="comment-actions">
-                                    <button class="action-btn like-btn" aria-label="Like comment">
-                                    <i class="bi bi-heart"></i>
-                                    <span>Like</span>
-                                    </button>
-                                    <button class="action-btn reply-btn" aria-label="Reply to comment">
-                                    <i class="bi bi-chat"></i>
-                                    <span>Reply</span>
-                                    </button>
-                                    <button class="action-btn share-btn" aria-label="Share comment">
-                                    <i class="bi bi-share"></i>
-                                    <span>Share</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                            @endforeach
+                        @endif
                     </div>
-                </div>
                 @endforeach
-                @endif
-                </div>
-                @endforeach
-                {{--For--}}
             </div>
             </div>
 

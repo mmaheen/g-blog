@@ -30,12 +30,10 @@ class CategorySeeder extends Seeder
             $random_photo = $photos[array_rand($photos)];
             $photo_name = $random_photo->getFileName();
 
-            $random_user_id = User::inRandomOrder()->first()->id;
-
             Category::create([
                 'title' => $faker->realText($maxNbChars=10,$indexSize=2),
                 'image' => $photo_name,
-                'user_id' => $random_user_id,
+                'user_id' => User::inRandomOrder()->first()->id,
                 'created_at' =>$faker->dateTime()
             ]);
         }

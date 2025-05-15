@@ -31,15 +31,12 @@ class PhotoSeeder extends Seeder
             $random_photo = $photos[array_rand($photos)];
             $photo_name = $random_photo->getFileName();
 
-            $random_category_id = Category::inRandomOrder()->first()->id;
-            $random_user_id = User::inRandomOrder()->first()->id;
-
             Photo::create([
                 'title' => $faker->sentence(5),
                 'description'=>$faker->realText($maxNbChars = 450, $indexSize = 2),
                 'image' => $photo_name,
-                'category_id' => $random_category_id,
-                'user_id' => $random_user_id,
+                'category_id' => Category::inRandomOrder()->first()->id,
+                'user_id' => User::inRandomOrder()->first()->id,
                 'created_at' => $faker->dateTime()
             ]);
         }
