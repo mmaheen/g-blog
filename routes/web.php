@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Backend\Admin\AdminBlogController;
+use App\Http\Controllers\Backend\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\Frontend\SiteController;
@@ -16,3 +18,11 @@ Route::post('/contact', [EmailController::class, 'contact'])->name('contact');
 
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+
+Route::prefix('/dasboard/admin')->name('dashboard.admin.')->group(function(){
+    Route::get('/',[AdminController::class,'dashboard'])->name('index');
+
+    Route::resources([
+        '/blog' => AdminBlogController::class,
+    ]);
+});
