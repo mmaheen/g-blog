@@ -199,7 +199,7 @@
         <div class="row gy-5">
           @foreach($blogs as $blog)
             <div class="col-xl-4 col-md-6">
-              <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="{{100+100}}">
+              <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="{{++$loop->index * 100}}">
 
                 <div class="post-img position-relative overflow-hidden">
                   <img src="{{ asset('uploads/blogs') }}/{{$blog->image}}" class="img-fluid" alt="">
@@ -255,7 +255,7 @@
         <div class="row gy-4">
 
           @foreach($users as $user)
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="{{100+100}}">
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="{{++$loop->index * 100}}">
               <div class="team-member d-flex align-items-start">
                 <div class="pic"><img src="{{ asset('uploads/users') }}/{{ $user->image }}" class="img-fluid" alt=""></div>
                 <div class="member-info">
