@@ -29,15 +29,15 @@ class SiteController extends Controller
     }
 
     public function blog(){
-        $categories = Category::select('id','title')->inRandomOrder()->take(10)->get();
-        $blogs = Blog::inRandomOrder()->paginate(6);
-        $recent_blogs = Blog::latest()->take(10)->get();
+        $categories = Category::select('id','title')->withCount('blogs')->inRandomOrder()->take(10)->get();
+        $blogs = Blog::inRandomOrder()->select('id','title','user_id','created_at','description','image')->with('user','comments')->paginate(6);
+        $recent_blogs = Blog::latest()->select('id','title','created_at','image')->take(10)->get();
         return view ('frontend.blog.index',compact('blogs','categories','recent_blogs'));
     }
 
     public function blogDetails(string $id){
         $blog = Blog::find($id);
-        $comments = Comment::where('blog_id',$id)->get();
+        $comments = Comment::where('blog_id',$id)->with('user','blog','replies')->get();
         // return $comments;
         return view ('frontend.blog.details',compact('blog','comments'));
     }
