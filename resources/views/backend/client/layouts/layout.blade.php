@@ -49,6 +49,10 @@
                <!-- dashboard inner -->
                @yield('content')
                <!-- end dashboard inner -->
+
+               <!-- footer -->
+               @include('backend.client.layouts.footer')
+               <!-- end footer -->
             </div>
          </div>
       </div>

@@ -6,8 +6,7 @@
     @if (session('error'))
         <div class="alert text-center alert-danger">
             {{ session('error') }}
-        </div>
-        
+        </div>       
     @endif
     <div class="container pt-5 mb-5">
         <div class="row justify-content-center">
