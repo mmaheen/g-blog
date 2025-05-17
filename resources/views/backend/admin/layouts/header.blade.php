@@ -182,8 +182,9 @@
                                         <li>
                                             <form action="{{ route('logout') }}" method = "POST">
                                                 @csrf
-                                                <button type="submit" class="btn btn-link"><i class="icon-key"></i> <span>Logout</span></button>
+                                                <button type="submit" style = "padding:0px" class="btn btn-link"><i class="icon-key"></i> <span>Logout</span></button>
                                             </form>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
