@@ -12,10 +12,12 @@
                     <img class="img-fluid" src="{{ asset('uploads/blogs') }}/{{ $blog->image }}" alt="">
                     <div class="card-body">
                         <h4 class="card-title text-justify">{{ $blog->title}}</h4>
-                        <h6 class="card-title">
-                            <img height = "25px" class = "rounded-circle mr-2" src="{{ asset('uploads/users') }}/{{ $blog->user->image }}" alt="">
-                            <span class = "mr-5 font-weight-bold">{{ $blog->user->name}}</span>
-                            <span class = "ml-5 text-muted font-italic">Category: {{ $blog->category->title}}</span>
+                        <h6 class="card-title d-flex justify-content-between">
+                            <div>
+                                <img height = "25px" class = "rounded-circle mr-2" src="{{ asset('uploads/users') }}/{{ $blog->user->image }}" alt="">
+                                <span class = "font-weight-bold">{{ $blog->user->name}}</span>
+                            </div>
+                            <span class = "text-muted font-italic">Category: {{ $blog->category->title}}</span>
                         </h6>
                         <p class="card-text text-justify">{{ $blog->description }}</p>
                     </div>
