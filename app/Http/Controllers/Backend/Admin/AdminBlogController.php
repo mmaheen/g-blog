@@ -54,20 +54,22 @@ class AdminBlogController extends Controller
         return view ('backend.admin.blog.show',compact('blog'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        $blog = Blog::find($id);
+        $categories = Category::select('title','id')->get();
+        return view ('backend.admin.blog.edit',compact('blog','categories'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'category' => 'required',
+            'description' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+        return $request;
     }
 
     /**
