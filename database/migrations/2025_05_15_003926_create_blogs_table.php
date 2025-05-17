@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->longText('description');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->unSignedBigInteger('user_id');
             $table->unSignedBigInteger('category_id');
             $table->timestamps();

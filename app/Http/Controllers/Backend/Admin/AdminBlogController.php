@@ -25,6 +25,12 @@ class AdminBlogController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'category' => 'required',
+            'description' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
         try{
             if(isset($request->image)){
                 $image_name = 'Blog-'.time().'.'.$request->image->extension();

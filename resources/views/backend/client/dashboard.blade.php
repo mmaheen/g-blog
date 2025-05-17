@@ -1,7 +1,7 @@
 @extends('backend.client.layouts.layout')
 @section('title', 'Dashboard')
 @section('content')     
-    <div class="midde_cont">
+    
         <div class="container-fluid">
             <div class="row column_title">
             <div class="col-md-12">
@@ -344,8 +344,5 @@
                 </div>
             </div>
             </div>
-        </div>
-        <!-- footer -->
-        
-    </div>    
+        </div> 
 @endsection

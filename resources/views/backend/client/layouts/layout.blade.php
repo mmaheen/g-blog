@@ -47,11 +47,15 @@
                </div>
                <!-- end topbar -->
                <!-- dashboard inner -->
-               @yield('content')
+               <div class="midde_cont">
+                  @yield('content')
+                  @include('backend.client.layouts.footer')
+               </div>
+               
                <!-- end dashboard inner -->
 
                <!-- footer -->
-               @include('backend.client.layouts.footer')
+
                <!-- end footer -->
             </div>
          </div>

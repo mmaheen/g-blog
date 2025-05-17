@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\SiteController;
 use App\Http\Controllers\Backend\Admin\AdminController;
 use App\Http\Controllers\Backend\Client\ClientController;
 use App\Http\Controllers\Backend\Admin\AdminBlogController;
+use App\Http\Controllers\Backend\Client\ClientBlogController;
 use App\Http\Middleware\AuthAdmin;
 
 Auth::routes();
@@ -30,4 +31,8 @@ Route::prefix('/dashboard/admin')->name('dashboard.admin.')->middleware('auth',A
 
 Route::prefix('/dashboard/user')->name('dashboard.client.')->middleware('auth')->group(function(){
     Route::get('/',[ClientController::class,'dashboard'])->name('index');
+
+    Route::resources([
+        '/blog' => ClientBlogController::class,
+    ]);
 });
