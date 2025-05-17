@@ -179,7 +179,11 @@
                                         <li>
                                             <a href=""><i class="icon-lock"></i> <span>Lock Screen</span></a>
                                         </li>
-                                        <li><a href=""><i class="icon-key"></i> <span>Logout</span></a></li>
+                                        <li>
+                                            <form action="{{ route('logout') }}" method = "POST">
+                                                @csrf
+                                                <button type="submit" class="btn btn-link"><i class="icon-key"></i> <span>Logout</span></button>
+                                            </form>
                                     </ul>
                                 </div>
                             </div>

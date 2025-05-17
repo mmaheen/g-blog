@@ -19,7 +19,7 @@ Route::post('/contact', [EmailController::class, 'contact'])->name('contact');
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
-Route::prefix('/dasboard/admin')->name('dashboard.admin.')->group(function(){
+Route::prefix('/dasboard/admin')->name('dashboard.admin.')->middleware('auth')->group(function(){
     Route::get('/',[AdminController::class,'dashboard'])->name('index');
 
     Route::resources([

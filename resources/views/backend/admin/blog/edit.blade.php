@@ -54,7 +54,7 @@
                                         <div class="alert alert-danger">{{ $message }}</div>                                       
                                     @enderror
                                 <div class="form-group d-flex justify-content-end">
-                                    <button class = "btn btn-primary btn-lg" type = "submit">Upload</button>                                        
+                                    <button class = "btn btn-primary btn-lg" type = "submit">Update</button>                                        
                                 </div>            
                             </form>
                         </div>

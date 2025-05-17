@@ -83,7 +83,7 @@ class AdminBlogController extends Controller
             $blog->category_id = $request->category;
             $blog->description = $request->description;
             $blog->update();
-            session()->flash('success','Blog Updated Successfully');
+            session()->flash('update','Blog Updated Successfully');
             return redirect()->route('dashboard.admin.blog.index');
         }
         catch(Exception $error){
@@ -102,7 +102,7 @@ class AdminBlogController extends Controller
                 }
             }
             $blog->delete();
-            session()->flash('success','Blog Deleted Successfully');
+            session()->flash('delete','Blog Deleted Successfully');
             return redirect()->route('dashboard.admin.blog.index');
         }
         catch(Exception $error){

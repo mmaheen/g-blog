@@ -24,13 +24,26 @@
         @if (session('delete'))
             <div class="card-body">
                 <div class="card-content">
-                    <div class="alert alert-primary alert-dismissible fade show">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    <div class="alert alert-danger alert-dismissible fade show">
+                        <button type="button" 
+                        class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
                         </button> <strong>Success!</strong> {{ session('delete') }}
                     </div>
                 </div>
             </div>        
-        @endif  
+        @endif
+
+        @if (session('update'))
+            <div class="card-body">
+                <div class="card-content">
+                    <div class="alert alert-secondary alert-dismissible fade show">
+                        <button type="button" 
+                        class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button> <strong>Success!</strong> {{ session('update') }}
+                    </div>
+                </div>
+            </div>        
+        @endif
   
      
                       
