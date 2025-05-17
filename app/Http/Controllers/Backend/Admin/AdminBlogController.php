@@ -57,6 +57,10 @@ class AdminBlogController extends Controller
     public function edit(string $id)
     {
         $blog = Blog::find($id);
+        if($blog->user_id != Auth::user()->id){
+            session()->flash('error','You are not authorized to edit this blog');
+            return redirect()->back();
+        }
         $categories = Category::select('title','id')->get();
         return view ('backend.admin.blog.edit',compact('blog','categories'));
     }

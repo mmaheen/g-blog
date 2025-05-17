@@ -39,10 +39,23 @@
                     <div class="alert alert-secondary alert-dismissible fade show">
                         <button type="button" 
                         class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-                        </button> <strong>Success!</strong> {{ session('update') }}
+                        </button> <strong>Error!</strong> {{ session('update') }}
                     </div>
                 </div>
             </div>        
+        @endif
+
+        @if (session('error'))
+            <div class="card-body">
+                <div class="card-content">
+                    <div class="alert alert-danger alert-dismissible fade show">
+                        <button type="button" 
+                        class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button> <strong>Success!</strong> {{ session('error') }}
+                    </div>
+                </div>
+            </div>
+            
         @endif
   
      
@@ -96,7 +109,12 @@
                                         <td>
                                             <div class = "d-flex">
                                                 <a href = "{{ route('dashboard.admin.blog.show',$blog->id) }}" class= "btn btn-rounded btn-info btn-sm mr-2">Show</a>
-                                                <a href = "{{ route('dashboard.admin.blog.edit',$blog->id) }}" class= "btn btn-warning btn-sm mr-2 text-white">Edit</a>
+                                                @if ($blog->user_id == Auth::user()->id)
+                                                    <a href = "{{ route('dashboard.admin.blog.edit',$blog->id) }}" class= "btn btn-warning text-white btn-sm mr-2">Edit</a>
+                                                @else
+                                                    <a href = "{{ route('dashboard.admin.blog.edit',$blog->id) }}" class= "btn btn-warning text-white btn-sm mr-2 disabled">Edit</a>
+                                                @endif
+
                                                 <form action="{{ route('dashboard.admin.blog.destroy',$blog->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
