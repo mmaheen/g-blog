@@ -69,14 +69,30 @@ class AdminBlogController extends Controller
             'description' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
-        return $request;
+        try{
+            $blog = Blog::find($id);
+            if(isset($request->image)){
+                $image_name = 'Blog-Updated'.time().'.'.$request->image->extension();
+                $request->image->move(public_path('uploads/blogs'),$image_name);
+                $blog->image = $image_name;
+            }
+            else{
+                $blog->image = $blog->image;
+            }
+            $blog->title = $request->title;
+            $blog->category_id = $request->category;
+            $blog->description = $request->description;
+            $blog->update();
+            session()->flash('success','Blog Updated Successfully');
+            return redirect()->route('dashboard.admin.blog.index');
+        }
+        catch(Exception $error){
+            return redirect()->back()->with('error',$error->getMessage());
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        return $id;
     }
 }

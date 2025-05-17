@@ -67,7 +67,11 @@
                                             <div class = "d-flex">
                                                 <a href = "{{ route('dashboard.admin.blog.show',$blog->id) }}" class= "btn btn-rounded btn-info btn-sm mr-2">Show</a>
                                                 <a href = "{{ route('dashboard.admin.blog.edit',$blog->id) }}" class= "btn btn-warning btn-sm mr-2 text-white">Edit</a>
-                                                <a href = "{{ route('dashboard.admin.blog.destroy',$blog->id) }}" class= "btn btn-rounded btn-danger btn-sm">Delete</a>
+                                                <form action="{{ route('dashboard.admin.blog.destroy',$blog->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class= "btn btn-rounded btn-danger btn-sm">Delete</button>
+                                                </form>
                                             </div>
                                             
                                         </td>
