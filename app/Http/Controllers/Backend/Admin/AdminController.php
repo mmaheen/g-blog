@@ -18,6 +18,7 @@ class AdminController extends Controller
     public function register(){
         return view('backend.admin.register');
     }
+
     public function store(Request $request){
         // return $request->all();
         $request->validate([
@@ -49,5 +50,9 @@ class AdminController extends Controller
         }
         $user->save();
         return redirect()->route('dashboard.admin.index')->with('success','User Created Successfully');
+    }
+
+    public function lock(){
+        return view('backend.admin.lock');
     }
 }

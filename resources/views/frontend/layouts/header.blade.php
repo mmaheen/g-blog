@@ -23,7 +23,7 @@
               </ul>
             </li>
           @else
-            <li><a href="{{ route ('dashboard.admin.index') }}" style = "color:#47b2e4">{{ Auth::user()->name }}</a></li>
+            <li><a href="{{ Auth::user()->role == 'admin' ? route ('dashboard.admin.index') : route('dashboard.client.index') }}" style = "color:#47b2e4">{{ Auth::user()->name }}</a></li>
           @endguest
           <li><a href="#contact">Contact</a></li>
         </ul>

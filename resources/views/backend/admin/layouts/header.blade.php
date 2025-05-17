@@ -177,7 +177,7 @@
                                         
                                         <hr class="my-2">
                                         <li>
-                                            <a href=""><i class="icon-lock"></i> <span>Lock Screen</span></a>
+                                            <a href="{{ route('dashboard.admin.lock') }}"><i class="icon-lock"></i> <span>Lock Screen</span></a>
                                         </li>
                                         <li>
                                             <form action="{{ route('logout') }}" method = "POST">
