@@ -16,7 +16,24 @@
     </div>
     <!-- row -->
 
+                        
+         
+
     <div class="container-fluid">
+
+        @if (session('delete'))
+            <div class="card-body">
+                <div class="card-content">
+                    <div class="alert alert-primary alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button> <strong>Success!</strong> {{ session('delete') }}
+                    </div>
+                </div>
+            </div>        
+        @endif  
+  
+     
+                      
         <div class="row">
             <div class="col-12">
                 <div class="card">

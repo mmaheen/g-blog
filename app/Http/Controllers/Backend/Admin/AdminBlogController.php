@@ -93,6 +93,21 @@ class AdminBlogController extends Controller
 
     public function destroy(string $id)
     {
-        return $id;
+        try{
+            $blog = Blog::find($id);
+            if($blog->image != null){
+                $image_path = public_path('uploads/blogs/'.$blog->image);
+                if(file_exists($image_path)){
+                    unlink($image_path);
+                }
+            }
+            $blog->delete();
+            session()->flash('success','Blog Deleted Successfully');
+            return redirect()->route('dashboard.admin.blog.index');
+        }
+        catch(Exception $error){
+            return redirect()->back()->with('error',$error->getMessage());
+        }
+        
     }
 }
