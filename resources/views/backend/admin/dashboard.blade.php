@@ -58,9 +58,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
                 
                 <div class="row">
                     @foreach ($users as $user)
@@ -77,7 +74,6 @@
                             </div>
                         </div>
                     @endforeach
-
                 </div>
 
                 <div class="row">
@@ -111,14 +107,13 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
+                                        {{ $users_table->links() }}
                                     </div>
                                 </div>
                             </div>
                         </div>                        
                     </div>
                 </div>
-
-                
 
                 <div class="row">
                     <div class="col-lg-3 col-sm-6">

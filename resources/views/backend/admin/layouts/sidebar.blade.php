@@ -7,54 +7,47 @@
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="{{ route('dashboard.admin.index') }}">Dashboard</a></li>
-                            <!-- <li><a href="./index-2.html">Home 2</a></li> -->
+                            <li><a href="{{ route('dashboard.admin.index') }}">Home</a></li>
                         </ul>
                     </li>
-               
-                    <li class="nav-label">Apps</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-envelope menu-icon"></i> <span class="nav-text">Email</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="">Inbox</a></li>
-                            <li><a href="">Read</a></li>
-                            <li><a href="">Compose</a></li>
+                            <li><a href="./email-inbox.html">Inbox</a></li>
+                            <li><a href="./email-read.html">Read</a></li>
+                            <li><a href="./email-compose.html">Compose</a></li>
                         </ul>
                     </li>
-                  
-             
-      
-                    <li class="nav-label">Forms</li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-note menu-icon"></i><span class="nav-text">Forms</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="">Blogs</a></li>
-                        </ul>
-                    </li>
+
                     <li class="nav-label">Table</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-menu menu-icon"></i><span class="nav-text">Table</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="{{ route('dashboard.admin.blog.index') }}" aria-expanded="false">Blogs</a></li>
-                            <li><a href="" aria-expanded="false">Data Table</a></li>
+                            <li><a href="{{ route('dashboard.admin.blog.index') }}" aria-expanded="false">Blog</a></li>
                         </ul>
                     </li>
-                    <li class="nav-label">Pages</li>
+
+                    <li class="nav-label">Forms</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-notebook menu-icon"></i><span class="nav-text">Pages</span>
+                            <i class="icon-note menu-icon"></i><span class="nav-text">Forms</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="">Login</a></li>
-                            <li><a href="">Register</a></li>
-                            <li><a href="">Lock Screen</a></li>
+                            <li><a href="./form-basic.html">Basic Form</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-label">Authentication</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-notebook menu-icon"></i><span class="nav-text">Create Admin</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="./page-register.html">Register</a></li>
                         </ul>
                     </li>
                 </ul>

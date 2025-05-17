@@ -3,10 +3,8 @@
         <div class="nav-header">
             <div class="brand-logo">
                 <a href="{{ route('index') }}">
-                    <b class="logo-abbr"><img src="{{ asset('assets/backend') }}/images/logo.png" alt=""> </b>
-                    <span class="logo-compact"><img src="./{{ asset('assets/backend') }}/images/logo-compact.png" alt=""></span>
                     <span class="brand-title">
-                        <img src="{{ asset('assets/backend') }}/images/logo-text.png" alt="">
+                        <h3  class = "text-white text-center">G Blog</h3>
                     </span>
                 </a>
             </div>
@@ -165,13 +163,13 @@
                         <li class="icons dropdown">
                             <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
                                 <span class="activity active"></span>
-                                <img src="{{ asset('assets/backend') }}/images/user/1.png" height="40" width="40" alt="">
+                                <img src="{{ asset('uploads/users') }}/{{ Auth::user()->image }}" height="40" width="40" alt="">
                             </div>
                             <div class="drop-down dropdown-profile   dropdown-menu">
                                 <div class="dropdown-content-body">
                                     <ul>
                                         <li>
-                                            <a href=""><i class="icon-user"></i> <span>Profile</span></a>
+                                            <a href=""><i class="icon-user"></i> <span>Profile - {{ Auth::user()->name }}</span></a>
                                         </li>
                                         <li>
                                             <a href=""><i class="icon-envelope-open"></i> <span>Inbox</span> <div class="badge gradient-3 badge-pill badge-primary">3</div></a>

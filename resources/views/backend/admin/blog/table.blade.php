@@ -48,7 +48,12 @@
                                             <td>{{ $blog->category->title }}</td>
                                             <td>{{ $blog->created_at }}</td>
                                             <td>
-                                                <button class= "btn btn-danger">Delete</button>
+                                                <div class = "d-flex">
+                                                    <button class= "btn btn-rounded btn-info btn-sm mr-2">Show</button>
+                                                    <button class= "btn btn-warning btn-sm mr-2 text-white">Edit</button>
+                                                    <button class= "btn btn-rounded btn-danger btn-sm">Delete</button>
+                                                </div>
+                                                
                                             </td>
                                         </tr>
                                         @endforeach
