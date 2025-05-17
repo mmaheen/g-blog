@@ -48,12 +48,10 @@ class AdminBlogController extends Controller
         
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
+        $blog = Blog::find($id);
+        return view ('backend.admin.blog.show',compact('blog'));
     }
 
     /**
