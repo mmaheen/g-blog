@@ -124,10 +124,12 @@
                   <img src="{{ asset('uploads/blogs') }}/{{$blog->image}}" alt="" class="flex-shrink-0">
                   <div>
                     <h4>
-                      <a href="{{ route('blog.details',$blog->id) }}">{{substr($blog->title, 0 , 60)}}</a>
-                      @if(strlen($blog->title)>50)
-                        ...
-                      @endif
+                      <a href="{{ route('blog.details',$blog->id) }}">
+                        {{substr($blog->title, 0 , 60)}}
+                        @if(strlen($blog->title)>50)
+                          ...
+                        @endif
+                      </a>
                     </h4>
                     <time datetime="2020-01-01">{{date('F j, Y',strtotime($blog->created_at))}}</time>
                   </div>

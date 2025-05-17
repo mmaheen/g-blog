@@ -3,35 +3,49 @@
 namespace App\Http\Controllers\Backend\Admin;
 
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Exception;
+use Illuminate\Support\Facades\Auth;
 
 class AdminBlogController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
-        $blogs = Blog::with('user','category')->paginate(10);
+        $blogs = Blog::with('user','category')->latest()->paginate(10);
         return view('backend.admin.blog.table',compact('blogs'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        $categories = Category::select('id','title')->get();
+        return view('backend.admin.blog.create', compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        try{
+            if(isset($request->image)){
+                $image_name = 'Blog-'.time().'.'.$request->image->extension();
+                $request->image->move(public_path('uploads/blogs'),$image_name);
+            }
+            else{
+                $image_name = null;
+            }
+            $blog = new Blog();
+            $blog->title = $request->title;
+            $blog->category_id = $request->category;
+            $blog->user_id = Auth::user()->id;
+            $blog->description = $request->description;
+            $blog->image = $image_name;
+            $blog->save();
+            return $blog;
+        }
+        catch(Exception $error){
+            return $error->getMessage();
+        }
+        
     }
 
     /**
