@@ -12,18 +12,11 @@ class AuthAdmin
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::check()){
-            if(Auth::user()->role == 'admin'){
-                return $next($request);
-            }else{
-                Session::flush();
-                session()->flash('error', 'You do not have admin access.');
-                return redirect('login');
-            }
-        }
-        else{
+        if(Auth::user()->role == 'admin'){
+            return $next($request);
+        }else{
             Session::flush();
-            session()->flash('error', 'You are not logged in.');
+            session()->flash('error', 'You do not have admin access.');
             return redirect('login');
         }
     }

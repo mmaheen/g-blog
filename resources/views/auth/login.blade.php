@@ -3,6 +3,12 @@
 @section('title', 'Login')
 
 @section('content')
+    @if (session('error'))
+        <div class="alert text-center alert-danger">
+            {{ session('error') }}
+        </div>
+        
+    @endif
     <div class="container pt-5 mb-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
