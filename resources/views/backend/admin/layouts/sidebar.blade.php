@@ -31,23 +31,13 @@
                         </ul>
                     </li>
 
-                    <li class="nav-label">Forms</li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-note menu-icon"></i><span class="nav-text">Forms</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./form-basic.html">Basic Form</a></li>
-                        </ul>
-                    </li>
-
                     <li class="nav-label">Authentication</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-notebook menu-icon"></i><span class="nav-text">Create Admin</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./page-register.html">Register</a></li>
+                            <li><a href="{{ route('dashboard.admin.register') }}">Register</a></li>
                         </ul>
                     </li>
                 </ul>

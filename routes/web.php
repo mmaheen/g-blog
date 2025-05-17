@@ -21,6 +21,8 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 
 Route::prefix('/dasboard/admin')->name('dashboard.admin.')->middleware('auth')->group(function(){
     Route::get('/',[AdminController::class,'dashboard'])->name('index');
+    Route::get('/register',[AdminController::class,'register'])->name('register');
+    Route::post('/register',[AdminController::class,'store'])->name('store');
 
     Route::resources([
         '/blog' => AdminBlogController::class,

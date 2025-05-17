@@ -8,6 +8,18 @@
 
 
     <div class="container-fluid mt-3">
+         @if (session('success'))
+            <div class="card-body">
+                <div class="card-content">
+                    <div class="alert alert-success alert-dismissible fade show">
+                        <button type="button" 
+                        class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button> <strong>Success!</strong> {{ session('success') }}
+                    </div>
+                </div>
+            </div>      
+        @endif
+        
         <div class="row">
             <div class="col-lg-3 col-sm-6">
                 <div class="card gradient-1">
