@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\Admin\AdminController;
 use App\Http\Controllers\Backend\Client\ClientController;
 use App\Http\Controllers\Backend\Admin\AdminBlogController;
 use App\Http\Controllers\Backend\Client\ClientBlogController;
+use App\Http\Controllers\Backend\Client\ClientPhotoController;
 use App\Http\Middleware\AuthAdmin;
 
 Auth::routes();
@@ -34,5 +35,6 @@ Route::prefix('/dashboard/user')->name('dashboard.client.')->middleware('auth')-
 
     Route::resources([
         '/blog' => ClientBlogController::class,
+        '/photo' => ClientPhotoController::class,
     ]);
 });

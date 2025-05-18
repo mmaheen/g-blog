@@ -66,15 +66,9 @@
       <script src="{{ asset('assets/backend/client') }}/js/bootstrap.min.js"></script>
       <!-- wow animation -->
       <script src="{{ asset('assets/backend/client') }}/js/animate.js"></script>
-      <!-- select country -->
-      <script src="{{ asset('assets/backend/client') }}/js/bootstrap-select.js"></script>
       <!-- owl carousel -->
       <script src="{{ asset('assets/backend/client') }}/js/owl.carousel.js"></script> 
-      <!-- chart js -->
-      <script src="{{ asset('assets/backend/client') }}/js/Chart.min.js"></script>
-      <script src="{{ asset('assets/backend/client') }}/js/Chart.bundle.min.js"></script>
-      <script src="{{ asset('assets/backend/client') }}/js/utils.js"></script>
-      <script src="{{ asset('assets/backend/client') }}/js/analyser.js"></script>
+
       <!-- nice scrollbar -->
       <script src="{{ asset('assets/backend/client') }}/js/perfect-scrollbar.min.js"></script>
       <script>

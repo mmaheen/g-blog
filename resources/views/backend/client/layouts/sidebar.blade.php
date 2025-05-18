@@ -26,6 +26,7 @@
             <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Tables</span></a>
             <ul class="collapse list-unstyled" id="element">
                <li><a href="{{ route('dashboard.client.blog.index') }}">> <span>Blogs</span></a></li>
+               <li><a href="{{ route('dashboard.client.photo.index') }}">> <span>Photo</span></a></li>
             </ul>
          </li>
          
