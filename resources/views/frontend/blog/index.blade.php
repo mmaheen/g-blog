@@ -35,7 +35,7 @@
                   <article>
 
                     <div class="post-img">
-                      <img src="{{ asset('uploads/blogs') }}/{{$blog->image}}" alt="" class="img-fluid">
+                      <img src="{{ asset('uploads/blogs/'.$blog->image) }}" alt="" class="img-fluid">
                     </div>
 
                     <h2 class="title">
@@ -121,7 +121,7 @@
 
               @foreach($recent_blogs as $blog)
                 <div class="post-item">
-                  <img src="{{ asset('uploads/blogs') }}/{{$blog->image}}" alt="" class="flex-shrink-0">
+                  <img src="{{ asset('uploads/blogs/'.$blog->image) }}" alt="" class="flex-shrink-0">
                   <div>
                     <h4>
                       <a href="{{ route('blog.details',$blog->id) }}">

@@ -30,7 +30,7 @@
             <article class="article">
 
             <div class="hero-img" data-aos="zoom-in">
-                <img src="{{ asset('uploads/blogs') }}/{{$blog->image}}" alt="Featured blog image" class="img-fluid" loading="lazy">
+                <img src="{{ asset('uploads/blogs/'.$blog->image) }}" alt="Featured blog image" class="img-fluid" loading="lazy">
                 <div class="meta-overlay">
                 <div class="meta-categories">
                     <a href="#" class="category">{{$blog->category->title}}</a>
@@ -46,7 +46,7 @@
 
                 <div class="author-info">
                     <div class="author-details">
-                    <img src="{{ asset('uploads/users' ) }}/{{ $blog->user->image }}" alt="Author" class="author-img">
+                    <img src="{{ asset('uploads/users/'.$blog->user->image ) }}" alt="Author" class="author-img">
                     <div class="info">
                         <h4>{{$blog->user->name}}</h4>
                         <span class="role">{{ucfirst($blog->user->role)}}</span>
