@@ -163,7 +163,11 @@
                         <li class="icons dropdown">
                             <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
                                 <span class="activity active"></span>
-                                <img src="{{ asset('uploads/users/'.Auth::user()->image) }}" alt="">
+                                @if (Auth::user()->image == null)
+                                    <img src="{{ asset('assets/default-user.jpg') }}" alt="">
+                                @else
+                                    <img src="{{ asset('uploads/users/'.Auth::user()->image) }}" alt="">                                  
+                                @endif
                             </div>
                             <div class="drop-down dropdown-profile   dropdown-menu">
                                 <div class="dropdown-content-body">

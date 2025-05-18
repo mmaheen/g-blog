@@ -257,7 +257,13 @@
           @foreach($users as $user)
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="{{++$loop->index * 100}}">
               <div class="team-member d-flex align-items-start">
-                <div class="pic"><img src="{{ asset('uploads/users/'.$user->image) }}" class="img-fluid" alt=""></div>
+                <div class="pic">
+                  @if ($user->image == null)
+                    <img src="{{ asset('assets/default-user.jpg') }}" class="img-fluid" alt="">
+                  @else
+                    <img src="{{ asset('uploads/users/'.$user->image) }}" class="img-fluid" alt="">              
+                  @endif
+                </div>
                 <div class="member-info">
                   <h4>{{$user->name}}</h4>
                   <span>{{ucfirst($user->role)}}</span>
@@ -311,7 +317,11 @@
             @foreach($testimonials as $testimonial)
               <div class="swiper-slide">
                 <div class="testimonial-item">
-                  <img src="{{ asset('uploads/users/'.$testimonial->user->image) }}" class="testimonial-img" alt="">
+                  @if ($testimonial->user->image == null)
+                    <img src="{{ asset('assets/default-user.jpg') }}" class="testimonial-img" alt="">
+                  @else
+                    <img src="{{ asset('uploads/users/'.$testimonial->user->image) }}" class="testimonial-img" alt="">                    
+                  @endif
                   <h3>{{$testimonial->user->name}}</h3>
                   <h4>Viewer &amp; {{ ucfirst($testimonial->user->role) }}</h4>
                   <div class="stars">

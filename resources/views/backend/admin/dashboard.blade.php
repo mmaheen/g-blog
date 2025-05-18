@@ -77,7 +77,11 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="text-center">
-                                <img src="{{ asset('uploads/users') }}/{{ $user->image }}" class="rounded-circle" height = "100" alt="">
+                                @if ($user->image == null)
+                                    <img src="{{ asset('assets/default-user.jpg') }}" class="rounded-circle" height = "100" alt="">
+                                @else
+                                    <img src="{{ asset('uploads/users/'. $user->image) }}" class="rounded-circle" height = "100" alt="">
+                                @endif
                                 <h5 class="mt-3 mb-1">{{ $user->name }}</h5>
                                 <p class="m-0">{{ ucfirst($user->role) }}</p>
                                 <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
@@ -106,7 +110,14 @@
                                     <tbody>
                                         @foreach ($users_table as $user)
                                             <tr>
-                                                <td><img class = "rounded-circle" src="{{ asset('uploads/users') }}/{{ $user->image }}"> {{ $user->name }}</td>
+                                                <td>
+                                                    @if ($user->image == null)
+                                                        <img class = "rounded-circle mr-2" src="{{ asset('assets/default-user.jpg') }}" alt="">
+                                                        @else
+                                                        <img class = "rounded-circle mr-2" src="{{ asset('uploads/users/'. $user->image) }}" alt="">
+                                                    @endif
+                                                    {{ $user->name }}
+                                                </td>
                                                 <td>
                                                     <span>{{ $user->email }}</span>
                                                 </td>

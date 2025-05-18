@@ -2,13 +2,25 @@
    <div class="sidebar_blog_1">
       <div class="sidebar-header">
          <div class="logo_section">
-            <a href="{{ route('dashboard.client.index') }}"><img class="logo_icon img-responsive" src="{{ asset('uploads/users') }}/{{ Auth::user()->image }}" alt="#" /></a>
+            <a href="{{ route('dashboard.client.index') }}">
+               @if (Auth::user()->image == null)
+                  <img class="logo_icon img-responsive" src="{{ asset('assets/default-user.jpg') }}" alt="#" />
+               @else
+                  <img class="logo_icon img-responsive" src="{{ asset('uploads/users/'. Auth::user()->image) }}" alt="#" />                  
+               @endif
+            </a>
          </div>
       </div>
       <div class="sidebar_user_info">
          <div class="icon_setting"></div>
          <div class="user_profle_side">
-            <div class="user_img"><img class="img-responsive" src="{{ asset('uploads/users') }}/{{ Auth::user()->image }}" alt="#" /></div>
+            <div class="user_img">
+               @if (Auth::user()->image == null)
+                  <img class="img-responsive" src="{{ asset('assets/default-user.jpg') }}" alt="#" /> 
+               @else
+                  <img class="img-responsive" src="{{ asset('uploads/users/'. Auth::user()->image) }}" alt="#" />
+               @endif
+            </div>
             <div class="user_info">
                <h6>{{ Auth::user()->name }}</h6>
                <p><span class="online_animation"></span> Online</p>

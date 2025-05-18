@@ -101,7 +101,11 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <img class = "rounded-circle mr-2" src="{{ asset('uploads/users') }}/{{ $blog->user->image }}" height ="30px" alt="">
+                                            @if ($blog->user->image == null)
+                                                <img class = "rounded-circle mr-2" src="{{ asset('assets/default-user.jpg') }}" height ="30px" alt="">                                            
+                                            @else
+                                                <img class = "rounded-circle mr-2" src="{{ asset('uploads/users/'.$blog->user->image) }}" height ="30px" alt="">
+                                            @endif
                                             {{ $blog->user->name }}
                                         </td>
                                         <td>{{ $blog->category->title }}</td>

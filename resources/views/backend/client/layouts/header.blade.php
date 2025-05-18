@@ -8,11 +8,17 @@
         <div class="icon_info">
             <ul class="user_profile_dd">
                 <li>
-                <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="{{ asset('uploads/users') }}/{{ Auth::user()->image }}" alt="#" /><span class="name_user">{{ Auth::user()->name }}</span></a>
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    @if (Auth::user()->image == null)
+                        <img class="img-responsive rounded-circle" src="{{ asset('assets/default-user.jpg') }}" alt="#" />
+                    @else
+                        <img class="img-responsive rounded-circle" src="{{ asset('uploads/users/'.Auth::user()->image) }}" alt="#" />
+                    @endif
+                    <span class="name_user">{{ Auth::user()->name }}</span>
+                </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="profile.html">My Profile</a>
-                    <a class="dropdown-item" href="settings.html">Settings</a>
-                    <a class="dropdown-item" href="help.html">Help</a>
+                    <a class="dropdown-item" href="">My Profile</a>
+                    <a class="dropdown-item" href="">Settings</a>
                     <form action="{{ route('logout') }}" method = "POST">
                         @csrf
                         <button type="submit" class="dropdown-item">Log Out</button>
