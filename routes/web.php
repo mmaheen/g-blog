@@ -32,6 +32,7 @@ Route::prefix('/dashboard/admin')->name('dashboard.admin.')->middleware('auth',A
 
 Route::prefix('/dashboard/user')->name('dashboard.client.')->middleware('auth')->group(function(){
     Route::get('/',[ClientController::class,'dashboard'])->name('index');
+    Route::get('/gallery',[ClientController::class,'gallery'])->name('gallery');
 
     Route::resources([
         '/blog' => ClientBlogController::class,

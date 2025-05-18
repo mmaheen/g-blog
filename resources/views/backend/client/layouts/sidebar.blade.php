@@ -21,7 +21,7 @@
       <ul class="list-unstyled components">
        
          <li><a href="{{ route('dashboard.client.index') }}"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a></li>
-         <li><a href=""><i class="fa fa-object-group blue2_color"></i> <span>Media Gallery</span></a></li>
+         <li><a href="{{ route('dashboard.client.gallery') }}"><i class="fa fa-object-group blue2_color"></i> <span>Media Gallery</span></a></li>
          <li>
             <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Tables</span></a>
             <ul class="collapse list-unstyled" id="element">
