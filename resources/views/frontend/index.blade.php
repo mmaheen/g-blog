@@ -19,7 +19,7 @@
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-            <img src="{{ asset('assets/frontend') }}/assets/img/hero-img.png" class="img-fluid animated" alt="">
+            <img src="{{ asset('assets/frontend/assets/img/hero-img.png') }}" class="img-fluid animated" alt="">
           </div>
         </div>
       </div>
@@ -72,7 +72,7 @@
           <div class="swiper-wrapper align-items-center">
             @foreach($categories as $category)
               <a class="swiper-slide" href="">
-                <img src="{{ asset('uploads/categories') }}/{{ $category->image }}" class="img-fluid" alt="">
+                <img src="{{ asset('uploads/categories/' .$category->image) }}" class="img-fluid" alt="">
               </a>
             @endforeach
           </div>
@@ -90,7 +90,7 @@
         <div class="row">
 
           <div class="col-lg-6 d-flex align-items-center">
-            <img src="{{ asset('assets/frontend') }}/assets/img/illustration/illustration-10.webp" class="img-fluid" alt="">
+            <img src="{{ asset('assets/frontend/assets/img/illustration/illustration-10.webp') }}" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-6 pt-4 pt-lg-0 content">
@@ -121,7 +121,7 @@
     <!-- Call To Action Section -->
     <section id="call-to-action" class="call-to-action section dark-background">
 
-      <img src="{{ asset('assets/frontend') }}/assets/img/bg/bg-8.webp" alt="">
+      <img src="{{ asset('assets/frontend/assets/img/bg/bg-8.webp') }}" alt="">
 
       <div class="container">
 
@@ -163,11 +163,11 @@
 
             @foreach($photos as $photo)
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{$photo->category->id}}">
-                <img src="{{ asset('uploads/photos') }}/{{ $photo->image }}" class="img-fluid" alt="">
+                <img src="{{ asset('uploads/photos/'.$photo->image) }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>{{$photo->category->title}}</h4>
                   <p>{{$photo->title}}</p>
-                  <a href="{{ asset('uploads/photos') }}/{{ $photo->image }}" title="{{ $photo->title }}" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('uploads/photos/'.$photo->image) }}" title="{{ $photo->title }}" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="{{ route('photo.details',$photo->id) }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div><!-- End Portfolio Item -->
@@ -202,7 +202,7 @@
               <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="{{++$loop->index * 100}}">
 
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="{{ asset('uploads/blogs') }}/{{$blog->image}}" class="img-fluid" alt="">
+                  <img src="{{ asset('uploads/blogs/'.$blog->image) }}" class="img-fluid" alt="">
                   <span class="post-date">{{date('F j',strtotime($blog->created_at))}}</span>
                 </div>
 
@@ -257,11 +257,11 @@
           @foreach($users as $user)
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="{{++$loop->index * 100}}">
               <div class="team-member d-flex align-items-start">
-                <div class="pic"><img src="{{ asset('uploads/users') }}/{{ $user->image }}" class="img-fluid" alt=""></div>
+                <div class="pic"><img src="{{ asset('uploads/users/'.$user->image) }}" class="img-fluid" alt=""></div>
                 <div class="member-info">
                   <h4>{{$user->name}}</h4>
                   <span>{{ucfirst($user->role)}}</span>
-                  <p>{{$faker->sentence}}</p>
+                  <p>{{$faker->sentence()}}</p>
                   <div class="social">
                     <a href=""><i class="bi bi-twitter-x"></i></a>
                     <a href=""><i class="bi bi-facebook"></i></a>
@@ -311,7 +311,7 @@
             @foreach($testimonials as $testimonial)
               <div class="swiper-slide">
                 <div class="testimonial-item">
-                  <img src="{{ asset('uploads/users') }}/{{$testimonial->user->image}}" class="testimonial-img" alt="">
+                  <img src="{{ asset('uploads/users/'.$testimonial->user->image) }}" class="testimonial-img" alt="">
                   <h3>{{$testimonial->user->name}}</h3>
                   <h4>Viewer &amp; {{ ucfirst($testimonial->user->role) }}</h4>
                   <div class="stars">

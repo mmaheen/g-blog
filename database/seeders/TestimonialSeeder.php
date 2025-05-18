@@ -21,7 +21,7 @@ class TestimonialSeeder extends Seeder
         foreach(range(1,30) as $index){
             Testimonial::create([
                 'user_id' => User::inRandomOrder()->first()->id,
-                'review' => $faker->sentence,
+                'review' => $faker->sentence(),
                 'rating' => rand(1,5)
             ]);
         }
