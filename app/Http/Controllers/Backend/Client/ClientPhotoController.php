@@ -75,20 +75,55 @@ class ClientPhotoController extends Controller
         return view('backend.client.photo.show', compact('photo'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        $categories = Category::select('id', 'title')->get();
+        $photo = Photo::find($id);
+        return view('backend.client.photo.edit', compact('photo', 'categories'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'category' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ],
+        [
+            'title.required' => 'Photo should have a title',
+            'category.required' => 'Please select a category',
+            'image.image' => 'The file must be an image',
+            'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif',
+            'image.max' => 'The image may not be greater than 2MB',
+        ]);
+
+        try {
+            $photo = Photo::find($id);
+            if ($request->hasFile('image')) {
+                if ($photo->image != null) {
+                    $image_path = public_path('uploads/photos/' . $photo->image);
+                    if (file_exists($image_path)) {
+                        unlink($image_path);
+                    }
+                }
+                $image = $request->file('image');
+                $filename = time() . '.' . $image->getClientOriginalExtension();
+                $path = public_path('uploads/photos');
+                $image->move($path, $filename);            
+            }
+            else{
+                $filename = $photo->image;
+            }
+            $photo->image = $filename;
+            $photo->title = $request->title;
+            $photo->description = $request->description;
+            $photo->category_id = $request  ->category;
+            $photo->update();
+            return redirect()->route('dashboard.client.photo.index')->with('success', 'Photo updated successfully');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Something went wrong. Please try again.');
+        }
     }
 
     public function destroy(string $id)
