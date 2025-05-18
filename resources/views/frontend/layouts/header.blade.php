@@ -14,6 +14,7 @@
           <li><a href="#skills">Skills</a></li>
           <li><a href="#photo">Photo</a></li>
           <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
           <li><a href="{{ route('blog') }}" class="active">Blog</a></li>
           @guest
             <li class="dropdown"><a href="#"><span>Authentication</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -25,7 +26,6 @@
           @else
             <li><a href="{{ Auth::user()->role == 'admin' ? route ('dashboard.admin.index') : route('dashboard.client.index') }}" style = "color:#47b2e4">{{ Auth::user()->name }}</a></li>
           @endguest
-          <li><a href="#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
