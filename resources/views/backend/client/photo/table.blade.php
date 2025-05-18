@@ -15,7 +15,7 @@
                 </div>
             </div>
         @endif
-        
+
         @if (session('error'))      
             <div class="card-body">
                 <div class="card-content">
@@ -58,7 +58,7 @@
                                             @endif
                                         </td>
                                         <td class= "d-flex justify-content-center">
-                                            <img class = "rounded" src="{{ asset('uploads/photos') }}/{{ $photo->image }}" height ="40px" alt="">
+                                            <img class = "rounded" src="{{ asset('uploads/photos/'.$photo->image)}}" height ="40px" alt="">
                                         </td>
                                         <td>
                                             {{ substr($photo->description, 0, 50) }}
