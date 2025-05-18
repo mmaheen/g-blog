@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Admin',
-            'email' => 'admin@gmail.com',
+            'email' => 'admin@test.com',
             'password' => '0',
             'role' => 'admin',
             'image' => 'person-f-8.webp'
@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'User',
-            'email' => 'user@gmail.com',
+            'email' => 'user@test.com',
             'password' => '0',
             'role' => 'client',
             'image' => 'person-m-7.webp'
