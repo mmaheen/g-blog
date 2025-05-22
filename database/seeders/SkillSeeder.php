@@ -8,12 +8,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class SkillSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        //
         Skill::create([
             'title' => 'Laravel',
             'percentage' => 90

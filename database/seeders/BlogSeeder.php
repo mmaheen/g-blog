@@ -12,12 +12,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class BlogSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        //
         $faker = Factory::create();
 
         $source_path = public_path('assets/frontend/assets/img/blog');

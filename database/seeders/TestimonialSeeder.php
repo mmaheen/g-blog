@@ -10,12 +10,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class TestimonialSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        //
         $faker = Factory::create();
 
         foreach(range(1,30) as $index){

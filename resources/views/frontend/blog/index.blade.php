@@ -39,7 +39,12 @@
                     </div>
 
                     <h2 class="title">
-                      <a href="{{ route('blog.details', $blog->id) }}">{{substr( $blog->title, 0 , 75 )}}</a>
+                      <a href="{{ route('blog.details', $blog->id) }}">
+                        {{substr( $blog->title, 0 , 75 )}}
+                        @if(strlen($blog->title)>72)
+                          ...
+                        @endif  
+                      </a>
                     </h2>
 
                     <div class="meta-top">

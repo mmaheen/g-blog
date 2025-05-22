@@ -10,12 +10,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        //
         $faker = Factory::create();
         
         $source_path = public_path('assets/frontend/assets/img/person');
@@ -27,7 +23,7 @@ class UserSeeder extends Seeder
         $role = ['admin','client'];
 
         User::factory()->create([
-            'name' => 'Admin',
+            'name' => 'Test Admin',
             'email' => 'admin@test.com',
             'password' => '0',
             'role' => 'admin',
@@ -35,7 +31,7 @@ class UserSeeder extends Seeder
         ]);
 
         User::factory()->create([
-            'name' => 'User',
+            'name' => 'Test User',
             'email' => 'user@test.com',
             'password' => '0',
             'role' => 'client',
