@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('blogs', function (Blueprint $table) {
@@ -16,6 +13,7 @@ return new class extends Migration
             $table->string('title');
             $table->longText('description');
             $table->string('image')->nullable();
+            $table->string('slug')->unique();
             $table->unSignedBigInteger('user_id');
             $table->unSignedBigInteger('category_id');
             $table->timestamps();
@@ -25,9 +23,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('blogs');

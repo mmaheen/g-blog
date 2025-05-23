@@ -7,7 +7,6 @@ use App\Models\User;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class CategorySeeder extends Seeder
 {
@@ -23,18 +22,18 @@ class CategorySeeder extends Seeder
             "Sports","Soccer", "Basketball", "Tennis", "Golf", "Swimming", "Running",
             "Movies","Action", "Comedy", "Drama", "Horror", "Sci-Fi", "Documentary",
             "Music", "Pop", "Rock", "Jazz", "Classical", "Hip-hop", "Country",
-            "Education", "Preschool", "Elementary", "High School", "College", "Vocational Training",
+            "Preschool", "Elementary", "High School", "College", "Vocational Training",
             "Travel","Beach Destinations", "Mountain Destinations", "Urban Destinations", "Adventure Travel",
             "Books","Fiction", "Non-fiction", "Mystery", "Fantasy", "Biography", "Poetry",
             "Art","Painting", "Sculpture", "Photography", "Digital Art", "Street Art",
-            "Hobbies","Gardening", "Cooking", "Painting", "Knitting", "Woodworking", "Gaming",
+            "Hobbies","Gardening", "Cooking", "Knitting", "Woodworking", "Gaming",
             "Health" ,"Exercise", "Nutrition", "Mental Health", "Preventive Care", "Chronic Conditions",
             "Home","Interior Design", "Furniture", "Appliances", "Kitchenware", "Bedding",
-            "Industry","Automotive", "Aerospace", "Technology", "Healthcare", "Retail", "Finance",
+            "Industry","Automotive", "Aerospace", "Healthcare", "Retail", "Manufacturing",
             "People","Children", "Teenagers", "Adults", "Seniors", "Families", "Entrepreneurs",
-            "University", "Faculties" , "Arts", "Humanities", "Engineering", "Business", "Law", "IT",
+            "University", "Faculties" , "Arts", "Humanities", "Business", "Law", "IT",
             "Drinks", "Water", "Tea", "Coffee", "Juice", "Soda", "Smoothies", "Alcoholic Beverages",
-            "Jobs","Healthcare", "IT", "Education", "Finance", "Engineering", "Marketing"
+            "Jobs", "Education", "Finance", "Engineering", "Marketing"
         ];
 
         $source_path = public_path('assets/frontend/assets/img/clients');
@@ -43,13 +42,14 @@ class CategorySeeder extends Seeder
         File::cleanDirectory($destination_path);
         File::copyDirectory($source_path,$destination_path);
 
-        foreach(range(1,20) as $index){
+        foreach($categories as $category) {
             $photos = File::files($destination_path);
             $random_photo = $photos[array_rand($photos)];
             $photo_name = $random_photo->getFileName();
 
             Category::create([
-                'title' => $categories[array_rand($categories)],
+                'title' => $category,
+                'slug' => \Illuminate\Support\Str::slug($category),
                 'image' => $photo_name,
                 'user_id' => User::inRandomOrder()->first()->id,
                 'created_at' =>$faker->dateTime()

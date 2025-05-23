@@ -39,7 +39,7 @@
                     </div>
 
                     <h2 class="title">
-                      <a href="{{ route('blog.details', $blog->id) }}">
+                      <a href="{{ route('blog.details', $blog->slug) }}">
                         {{substr( $blog->title, 0 , 75 )}}
                         @if(strlen($blog->title)>72)
                           ...

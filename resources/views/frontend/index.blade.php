@@ -227,7 +227,7 @@
 
                   <hr>
 
-                  <a href="{{ route('blog.details', $blog->id) }}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="{{ route('blog.details', $blog->slug) }}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
 
                 </div>
 

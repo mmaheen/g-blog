@@ -8,7 +8,6 @@ use App\Models\User;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class BlogSeeder extends Seeder
 {
@@ -26,9 +25,11 @@ class BlogSeeder extends Seeder
             $photos = File::files($destination_path);
             $random_photo = $photos[array_rand($photos)];
             $photo_name = $random_photo->getFileName();
+            $blog_title = $faker->realText($maxNbChars = 100, $indexSize = 2);
 
             Blog::create([
-                'title' => $faker->realText($maxNbChars = 100, $indexSize = 2),
+                'title' => $blog_title,
+                'slug' => \Illuminate\Support\Str::slug($blog_title),
                 'description'=>$faker->realText($maxNbChars = 2000, $indexSize = 2),
                 'image' => $photo_name,
                 'user_id' =>  User::inRandomOrder()->first()->id,
